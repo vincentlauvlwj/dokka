@@ -275,8 +275,8 @@ abstract class StructuredOutputBuilder(val to: StringBuilder,
             for ((path, nodes) in breakdownByLocation) {
                 if (!noHeader && path.isNotEmpty()) {
                     appendBreadcrumbs(path)
-                    appendLine()
-                    appendLine()
+                    // appendLine()
+                    // appendLine()
                 }
                 appendLocation(nodes.filter { it.kind != NodeKind.ExternalClass })
             }
@@ -469,8 +469,8 @@ abstract class StructuredOutputBuilder(val to: StringBuilder,
             val breakdownByLocation = node.path.filterNot { it.name.isEmpty() }.map { link(node, it) }
 
             appendBreadcrumbs(breakdownByLocation)
-            appendLine()
-            appendLine()
+            // appendLine()
+            // appendLine()
             appendHeader { appendText(node.name) }
 
             fun DocumentationNode.priority(): Int = when (kind) {
