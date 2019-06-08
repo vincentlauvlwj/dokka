@@ -347,7 +347,7 @@ abstract class StructuredOutputBuilder(val to: StringBuilder,
             val sourceUrl = details(NodeKind.SourceUrl).firstOrNull()
             if (sourceUrl != null) {
                 to.append(" ")
-                appendLink(sourceUrl.name) { to.append("(source)") }
+                wrap("<a class=\"source-link\" href=\"${sourceUrl.name}\">", "</a>") { to.append("(source code)") }
             }
         }
 

@@ -101,7 +101,7 @@ object MainKt {
         val includes = if (arguments.include.isNotEmpty()) arguments.include.split(File.pathSeparatorChar).toList() else listOf()
 
         val sourceLinks = if (arguments.srcLink.isNotEmpty() && arguments.srcLink.contains("="))
-            listOf(SourceLinkDefinitionImpl.parseSourceLinkDefinition(arguments.srcLink))
+            arguments.srcLink.split("^^").map { SourceLinkDefinitionImpl.parseSourceLinkDefinition(it) }
         else {
             if (arguments.srcLink.isNotEmpty()) {
                 println("Warning: Invalid -srcLink syntax. Expected: <path>=<url>[#lineSuffix]. No source links will be generated.")
